@@ -1,6 +1,13 @@
 line-stream-util
 ===================
 
+## Install
+
+```bash
+npm i line-stream-util
+```
+
+
 ## split lines with '\n'
 
 ```js
@@ -12,6 +19,7 @@ fs.createReadStream('a.txt')
   .setEncoding('utf8')
   .on('data', console.log)
 ```
+
 
 ## get head lines
 
@@ -31,3 +39,5 @@ upstream.pipe(sutil.head(1, upstream))  // upstream will be unpiped automaticall
           console.log(count + '.', line)
         })
 ```
+
+
