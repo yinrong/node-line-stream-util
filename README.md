@@ -27,11 +27,8 @@ fs.createReadStream('a.txt')
 var sutil = require('line-stream-util')
 var fs = require('fs')
 
-var upstream = fs.createReadStream('a.txt')
-
 var count = 0
 
-var result = []
 fs.createReadStream('test/a.txt')
   .pipe(sutil.head(1))
   .pipe(sutil.split())
