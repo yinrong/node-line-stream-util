@@ -16,6 +16,21 @@ describe('main', function() {
       })
   })
 
+  it('join', function(done) {
+
+    var result = ''
+    fs.createReadStream('test/a.txt')
+      .pipe(sutil.split())
+      .pipe(sutil.join())
+      .on('data', function(data) {
+        result += data.toString()
+      })
+      .on('end', function() {
+        assert.equal(result, 'a\nb\nc\nd\n')
+        done()
+      })
+  })
+
 })
 
 var fs = require('fs')
