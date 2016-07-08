@@ -44,3 +44,9 @@ fs.createReadStream('test/a.txt')
 ```
 
 
+## remove head lines
+```js
+fs.createReadStream('test/a.txt')
+  .pipe(sutil.removeHead(2)) // remove 2 line
+  .on('data', console.log)
+```

@@ -31,6 +31,20 @@ describe('main', function() {
       })
   })
 
+  it('remove head', function(done) {
+
+    var result = ''
+    fs.createReadStream('test/a.txt')
+      .pipe(sutil.removeHead(1))
+      .on('data', function(line) {
+        result += line.toString()
+      })
+      .on('end', function() {
+        assert.equal(result, 'b\nc\nd\n')
+        done()
+      })
+  })
+
 })
 
 var fs = require('fs')
